@@ -8,11 +8,12 @@ start_game = False
 
 pygame.init()
 pygame.mixer.init()
+pygame.joystick.init()
 
 pygame.display.set_caption("AllyThugs")
 screen = pygame.display.set_mode((width,height))
 clock = pygame.time.Clock()
-
+joysticks = [pygame.joystick.Joystick(i) for i in range(pygame.joystick.get_count())]
 start_bt_img = pygame.image.load("start.png")
 start_bt = classes.Button((center_x - 400),(center_y - 250),start_bt_img,0.5)
 
@@ -25,6 +26,8 @@ while True:
         start_game = True
     while start_game:
         #play game
-        break
+        for event in pygame.event.get():
+            if event.type == pygame.JOYBUTTONDOWN:
+                print(event)
     clock.tick(60)
     pygame.display.update()
