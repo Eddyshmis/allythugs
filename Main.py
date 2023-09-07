@@ -29,5 +29,7 @@ while True:
         for event in pygame.event.get():
             if event.type == pygame.JOYBUTTONDOWN:
                 print(event)
+            if event.type == pygame.JOYAXISMOTION:
+                print(event)
     clock.tick(60)
     pygame.display.update()
