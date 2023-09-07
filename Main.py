@@ -17,6 +17,8 @@ joysticks = [pygame.joystick.Joystick(i) for i in range(pygame.joystick.get_coun
 start_bt_img = pygame.image.load("start.png")
 start_bt = classes.Button((center_x - 400),(center_y - 250),start_bt_img,0.5)
 
+player = classes.Player()
+
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
