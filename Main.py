@@ -26,6 +26,9 @@ foreground_image = pygame.image.load("cyberpunk-street-files\cyberpunk-street-fi
 back_buildings_image = pygame.image.load("cyberpunk-street-files\cyberpunk-street-files\Version 1\PNG\layers\\back-buildings.png").convert_alpha()
 far_buildings_image = pygame.image.load("cyberpunk-street-files\cyberpunk-street-files\Version 1\PNG\layers\\far-buildings.png").convert_alpha()
 
+first_man_image = pygame.image.load("first_man.png")
+first_man = classes.Player(0,0,first_man_image,2)
+
 foreground = classes.image(0,0,foreground_image,4.5)
 foreground_1 = classes.image(1584,0,foreground_image,4.5)
 
@@ -118,11 +121,13 @@ while True:
             if event.type == pygame.KEYDOWN:
                 print(back_buildings.rect.centerx)
         pygame.display.update()
+        pygame.time.delay(10)
     while start_game:
         if faded_in == False:
             fade_screen_black()
             faded_in = True
-        loading_screen(loadBackground)
+        # loading_screen(loadBackground)
+        first_man.draw(screen)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()

@@ -49,5 +49,14 @@ class image():
 		self.image.set_alpha(alpha)
 	def rotate_draw(self, rotation:int):
 		self.image = pygame.transform.rotate(self.image,rotation)
-
+class Player():
+	def __init__(self,x,y,image,scale):
+		self.x = x
+		self.y = y
+		width = image.get_width()
+		height = image.get_height()
+		self.image = pygame.transform.scale(image,(int(width * scale), int(height * scale)))
+	def draw(self,surface):
+		surface.blit(self.image,(self.x,self.y))
+	# def animation(self)
 		
