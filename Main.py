@@ -76,12 +76,12 @@ def fade_screen_black():
         screen.blit(fade,(0,0))
         pygame.display.update()
         pygame.time.delay(10)
-def loading_screen():
+def loading_screen(func):
     fade = pygame.Surface((width,height))
     fade.fill((0,0,0))
     for alpha in range(300,0,-1):
         fade.set_alpha(alpha)
-        loadBackground()
+        func()
         screen.blit(fade,(0,0))
         pygame.display.update()
         pygame.time.delay(10)
@@ -122,7 +122,7 @@ while True:
         if faded_in == False:
             fade_screen_black()
             faded_in = True
-        
+        loading_screen(loadBackground)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()

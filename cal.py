@@ -17,5 +17,10 @@ x = 0
 #     money = m*c
 #     print(c)
 #     print("money:",money)
-for x in range(m):
-    print(m-2*x)
+# for x in range(m):
+#     print(m-2*x)
+def decor(func):
+    func()
+def functionName():
+    print("w")
+decor(functionName)
